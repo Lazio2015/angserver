@@ -1,6 +1,11 @@
 var express = require('express')
 var app = express();
 var bodyParser = require('body-parser');
+var request = require('request');
+
+var http = require('http');
+var path = require('path');
+var config = require('config');
 
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
@@ -25,19 +30,41 @@ var history = [
     url: "http://localhost/server/45"
   }
 ];
+var historyId = history.length;
 
 app.get('/server', function(req, res) {
 
 });
 
 app.post('/server', function(req, res) {
-  var obj = req.body;
-  obj.id = history.length + 1;
+  var hist = req.body;
+  hist.id = ++historyId;
 
-  history.push(obj);
-  obj.content = "<html><h1>IBRAIM</h1></html>";
+  var url = hist.url;
+
+  if (url.indexOf('http')) {
+    url = 'http://' + url;
+  }
+  request({
+    method: hist.type,
+    uri: url,
+  }, function (error, response, body) {
+    history.push(hist);
+    var obj={};
+    obj.content = body;
+    obj.history = hist;
+
+    res.json(obj);
+  });
+/*
+  history.push(hist);
+  var obj={};
+  obj.content = 'content with server';
+  obj.history = hist;
 
   res.json(obj);
+*/
+
 });
 
 app.get('/history', function(req, res) {
@@ -71,13 +98,15 @@ app.delete('/history/:id', function(req, res) {
 
 app.post('/history', function(req, res) {
   var obj = req.body;
-  obj.id = history.length + 1;
+  obj.id = ++historyId;
 
   history.push(obj);
   res.json(obj);
 });
 
-var server = app.listen(3000, function () {
+app.set('port', config.get('port'));
+
+var server = app.listen(app.get('port'), function () {
   var host = server.address().address;
   var port = server.address().port;
 
