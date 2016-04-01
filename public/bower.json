@@ -1,0 +1,26 @@
+{
+  "name": "nodemine",
+  "homepage": "https://github.com/Lazio2015/angserver",
+  "authors": [
+    "lenur <lenur.m@wecandevelopit.com>"
+  ],
+  "description": "",
+  "main": "",
+  "moduleType": [],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "^2.2.2",
+    "angular": "angularjs#^1.5.3",
+    "angular-ui-router": "^0.2.18",
+    "angular-bootstrap": "^1.2.5",
+    "bootstrap-sass": "^3.3.6",
+    "ngstorage": "^0.3.10"
+  }
+}
