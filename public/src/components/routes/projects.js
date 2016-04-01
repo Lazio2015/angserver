@@ -1,0 +1,32 @@
+/**
+ * Created by lenur on 4/1/16.
+ */
+
+function ProjectsRouterConfig($stateProvider) {
+
+    var states = [];
+
+    states.push({
+        name: 'projects'
+        , sticky: true
+        , deepStateRedirect: true
+        , url: '/projects'
+        , controller: 'ProjectsCtrl'
+        , controllerAs: 'projects'
+        , templateUrl: '../tpls/pages/projects/projects.html'
+    });
+
+    states.push({
+        name: 'project'
+        , sticky: true
+        , deepStateRedirect: true
+        , url: '/project/:projectId'
+        , controller: 'ProjectViewCtrl'
+        , controllerAs: 'projectView'
+        , templateUrl: '../tpls/pages/projects/view/view.html'
+    });
+
+    angular.forEach(states, function(state) {
+        $stateProvider.state(state);
+    });
+}
