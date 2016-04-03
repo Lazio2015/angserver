@@ -19,7 +19,6 @@ var gulp            = require('gulp'),
     through         = require('through2'),
     ngConstant      = require('gulp-ng-constant');
 gettext         = require('gulp-angular-gettext');
-templateCache   = require('gulp-angular-templatecache');
 
 // ignore everything that begins with underscore
 var hidden_files = '**/_*.*';

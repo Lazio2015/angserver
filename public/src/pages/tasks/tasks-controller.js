@@ -11,7 +11,7 @@ function TasksCtrl($state, ProjectsService, TasksService) {
             .then(function(resp){
                 tasks.items = resp.data;
                 console.log('taski', resp);
-            })
+            });
     };
 
     tasks.remove = function(id) {
@@ -19,9 +19,9 @@ function TasksCtrl($state, ProjectsService, TasksService) {
             TasksService.delete(id)
                 .then(function(){
                     //TODO: del task row
-                })
+                });
         }
-    }
+    };
 
     tasks.resolve = function() {
         tasks.getList();

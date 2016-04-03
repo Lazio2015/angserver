@@ -17,7 +17,9 @@ function TasksService($http, SystemConfig) {
     };
 
     TasksService.add = function(task) {
-        return TasksService._$http.post(SystemConfig.url + TasksService.url, $.param(task));
+        console.log('5', task);
+        console.log('5', $.param(task));
+        return TasksService._$http.post(SystemConfig.url + TasksService.url, task);
     };
 
     return TasksService;

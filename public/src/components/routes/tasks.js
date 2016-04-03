@@ -17,10 +17,10 @@ function TasksRouterConfig($stateProvider) {
     });
 
     states.push({
-        name: 'project.tasks.add'
+        name: 'project.taskAdd'
         , sticky: true
         , deepStateRedirect: true
-        , url: '/add'
+        , url: '/add-task'
         , controller: 'TasksAddCtrl'
         , controllerAs: 'tasksAdd'
         , templateUrl: '../tpls/pages/tasks/add/add.html'

@@ -4,22 +4,25 @@ var   express     = require('express')
     , request     = require('request')
     , http        = require('http')
     , path        = require('path')
-    , config        = require('config')
+    //, config        = require('config')
+    , config        = require('./config')
     , mysql         = require('node-mysql')
     , router        = express.Router()
     ;
-
+//\usr\bin\node.exe
+//commit sql
 
 var db = new mysql.DB(config.get('db'));
 app.use(express.static('public/dist'));
 app.use('/bower_components', express.static('public/bower_components'));
 
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+
 app.use('/api', router);
 app.use('*', express.static('public/dist/index.html'));
 
 db.connect(function(conn, cb){
-    app.use(bodyParser.urlencoded({ extended: false }));
-    app.use(bodyParser.json());
 
     var cors = require('cors');
     app.use(cors());

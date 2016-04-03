@@ -2,18 +2,31 @@
  * Created by lenur on 4/1/16.
  */
 
-function TasksAddCtrl(TasksService) {
+function TasksAddCtrl($state, TasksService) {
     var tasksAdd = this;
 
-    tasksAdd.add = function(task) {
-        TasksService.add(task)
+    tasksAdd.model = {
+        name: '',
+        project_id: 1,
+        creator_id: 1,
+        assigned_to: 1
+    };
+
+    tasksAdd.submit = function(){
+
+        if (!tasksAdd.model.name) {
+            return alert('Task name cannot be empty!');
+        }
+
+        TasksService.add(tasksAdd.model)
             .then(function(resp){
                 console.log(resp);
             });
+
+        $state.go('^.tasks');
     };
 
     tasksAdd.resolve = function(){
-        console.log('add');
      //   tasksAdd.add();
     };
 
