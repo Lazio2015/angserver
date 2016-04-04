@@ -9,8 +9,6 @@ var   express     = require('express')
     , mysql         = require('node-mysql')
     , router        = express.Router()
     ;
-//\usr\bin\node.exe
-//commit sql
 
 var db = new mysql.DB(config.get('db'));
 app.use(express.static('public/dist'));
