@@ -1,4 +1,4 @@
-<div class="row">
+<div class="row tasks">
     <div class="col-md-12">
         <h1>Tasks
             <a href ui-sref="^.taskAdd" class="btn btn-default pull-right">
@@ -26,7 +26,10 @@
                 <td>
                     <a href ui-sref="user({id: task.assigned_to})">{{task.user_first_name}} {{task.user_last_name}}</a>
                 </td>
-                <td ng-click="tasks.remove(task.id)"><i class="glyphicon glyphicon-trash"></i></td>
+                <td class="options">
+                    <i class="glyphicon glyphicon-pencil" ng-click="tasks.edit(task.id)"></i>
+                    <i class="glyphicon glyphicon-trash" ng-click="tasks.remove(task.id)"></i>
+                </td>
             </tr>
         </table>
     </div>
