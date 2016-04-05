@@ -59,7 +59,8 @@ module.exports = function(conn) {
             const QUERY_TPL = "INSERT INTO `tasks` (name, project_id, creator_id, assigned_to)"
             + " VALUES('%s', %d, %d, %d)";
 
-            var query = util.format(QUERY_TPL, task.name, task.project_id, task.creator_id, task.assigned_to);
+            task.assignedId = task.assignedId || 0;
+            var query = util.format(QUERY_TPL, task.name, task.projectId, 1, task.assignedId);
 
             conn.query(query, function(err, task){
                 if (err)

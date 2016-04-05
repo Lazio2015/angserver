@@ -18,7 +18,7 @@ function TasksCtrl($state, ProjectsService, TasksService) {
         if (confirm('Do you want to delete this task?')) {
             TasksService.delete(id)
                 .then(function(){
-                    //TODO: del task row
+                    tasks.items = angular.removeFromObjectArray(tasks.items, id);
                 });
         }
     };

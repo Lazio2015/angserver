@@ -21,6 +21,7 @@
     "angular-ui-router": "^0.2.18",
     "angular-bootstrap": "^1.2.5",
     "bootstrap-sass": "^3.3.6",
-    "ngstorage": "^0.3.10"
+    "ngstorage": "^0.3.10",
+    "ui-select": "angular-ui-select#^0.16.1"
   }
 }

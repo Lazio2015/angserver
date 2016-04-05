@@ -2,10 +2,11 @@
  * Created by lenur on 3/31/16.
  */
 angular.module('nodemine', [
-        'ngStorage',
-        'ui.router',
-        'ui.bootstrap',
-        'ui.bootstrap.tpls'
+          'ngStorage'
+        , 'ui.router'
+        , 'ui.bootstrap'
+        , 'ui.bootstrap.tpls'
+        , 'ui.select'
 ])
 
     .constant('SystemConfig', {

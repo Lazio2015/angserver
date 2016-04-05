@@ -20,5 +20,9 @@ function ProjectsService($http, SystemConfig) {
         return ProjectsService._$http.get(SystemConfig.url + ProjectsService.url + '/' + projectId + '/tasks');
     };
 
+    ProjectsService.getUsers = function(projectId) {
+        return ProjectsService._$http.get(SystemConfig.url + ProjectsService.url + '/' + projectId + '/users');
+    };
+
     return ProjectsService;
 }

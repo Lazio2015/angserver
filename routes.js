@@ -5,6 +5,7 @@
 module.exports = function(app, conn){
     var projectController = require('./ctl/ProjectController')(app, conn);
     var taskController = require('./ctl/TaskController')(app, conn);
+    var userController = require('./ctl/UserController')(app, conn);
 
     app.get('/projects/:id', projectController.getById);
     app.get('/projects', projectController.getAll);
@@ -14,4 +15,6 @@ module.exports = function(app, conn){
     app.get('/projects/:id/tasks', taskController.getAllByProjectId);
     app.delete('/tasks/:id', taskController.deleteById);
     app.post('/tasks', taskController.add);
+
+    app.get('/projects/:id/users', userController.getAllByProjectId);
 };
