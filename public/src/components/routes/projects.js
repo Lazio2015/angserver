@@ -17,13 +17,13 @@ function ProjectsRouterConfig($stateProvider) {
     });
 
     states.push({
-        name: 'project'
+        name: 'projects.list'
         , sticky: true
         , deepStateRedirect: true
-        , url: '/project/:projectId'
-        , controller: 'ProjectViewCtrl'
-        , controllerAs: 'projectView'
-        , templateUrl: '../tpls/pages/projects/view/view.html'
+        , url: '/list'
+        , controller: 'ProjectsListCtrl'
+        , controllerAs: 'projectsList'
+        , templateUrl: '../tpls/pages/projects/list/list.html'
     });
 
     angular.forEach(states, function(state) {

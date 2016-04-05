@@ -32,6 +32,7 @@ function AppConfig(
 
     BaseRouterConfig($stateProvider, $urlRouterProvider, $locationProvider);
     ProjectsRouterConfig($stateProvider);
+    ProjectRouterConfig($stateProvider);
     TasksRouterConfig($stateProvider);
 
     // setup x-www-form-urlencoded Content-Type

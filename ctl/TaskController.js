@@ -39,7 +39,7 @@ module.exports = function(app, db){
             });
         },
 
-        deleteById: function(req, res){
+        deleteById: function(req, res, next){
             taskDAO.deleteById(req.params.id, function(err){
                 if (err) {
                     return next(err);
@@ -49,8 +49,18 @@ module.exports = function(app, db){
             });
         },
 
-        add: function(req, res){
+        add: function(req, res, next){
             taskDAO.add(req.body, function(err, task){
+                if (err) {
+                    return next(err);
+                }
+
+                res.json(task);
+            });
+        },
+
+        edit: function(req, res, next){
+            taskDAO.update(req.body, function(err, task){
                 if (err) {
                     return next(err);
                 }

@@ -59,12 +59,32 @@ module.exports = function(conn) {
             const QUERY_TPL = "INSERT INTO `tasks` (name, project_id, creator_id, assigned_to)"
             + " VALUES('%s', %d, %d, %d)";
 
-            task.assignedId = task.assignedId || 0;
+            task.assignedId = task.assignedId || 1;
             var query = util.format(QUERY_TPL, task.name, task.projectId, 1, task.assignedId);
 
-            conn.query(query, function(err, task){
+            conn.query(query, function(err, data){
                 if (err)
                     return cb(err);
+
+                task.id = data.insertId;
+
+                cb(null, task);
+            });
+        },
+
+        update: function(task, cb) {
+            const QUERY_TPL = "UPDATE `tasks` SET `name`='%s', `project_id`=%d, `assigned_to`=%d, `estimated_time`=%d WHERE `id`=%d";
+
+            task.assignedId = task.assignedId || 1;
+            task.id = task.id || 0;
+
+            var query = util.format(QUERY_TPL, task.name, task.projectId, task.assignedId, parseInt(task.estimatedTime), task.id);
+
+            conn.query(query, function(err, data) {
+                if (err) {
+                    console.error(err);
+                    return cb(err);
+                }
 
                 cb(null, task);
             });

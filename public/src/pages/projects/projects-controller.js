@@ -2,19 +2,15 @@
  * Created by lenur on 3/31/16.
  */
 
-function ProjectsCtrl(ProjectsService) {
+function ProjectsCtrl($state) {
     var projects = this;
-    projects.items = [];
 
-    projects.getProjects = function() {
-        ProjectsService.list()
-            .then(function(resp){
-                projects.items = resp.data;
-            })
-    };
+    if ($state.current.url === '/projects') {
+        $state.go('projects.list');
+    }
 
     projects.resolve = function() {
-        projects.getProjects();
+        console.log('resolve');
     };
 
     projects.resolve();

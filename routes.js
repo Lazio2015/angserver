@@ -15,6 +15,7 @@ module.exports = function(app, conn){
     app.get('/projects/:id/tasks', taskController.getAllByProjectId);
     app.delete('/tasks/:id', taskController.deleteById);
     app.post('/tasks', taskController.add);
+    app.put('/tasks', taskController.edit);
 
     app.get('/projects/:id/users', userController.getAllByProjectId);
 };

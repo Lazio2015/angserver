@@ -1,12 +1,13 @@
 /**
  * Created by lenur on 4/1/16.
  */
-function AppCtrl() {
+function AppCtrl($state) {
 
     var app = this;
-    app.selectItem = 'home';
+    app.currentPage = 'home';
 
-    app.setSelectItem = function (value) {
-        app.selectItem = value;
+    app.goUrl = function (url) {
+        app.currentPage = url;
+        $state.go(url);
     };
 }
