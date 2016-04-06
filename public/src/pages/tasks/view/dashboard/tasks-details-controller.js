@@ -4,13 +4,29 @@
 function TasksViewDashboardCtrl($state, TasksService) {
     var tasksViewDashboard = this;
 
-    tasksViewDashboard.item = {};
+    tasksViewDashboard.task = {};
+    tasksViewDashboard.worklogs = {}
 
-    tasksViewDashboard.loadTasks = function() {
+    tasksViewDashboard.backToList = function() {
+        $state.go('project.tasks.list');
+    };
+
+    tasksViewDashboard.loadTask = function(taskId) {
         TasksService
-            .findById($state.params.id)
+            .findById(taskId)
             .success(function(data){
-                tasksViewDashboard.item = data;
+                tasksViewDashboard.task = data;
+            })
+            .error(function(){
+
+            })
+    };
+
+    tasksViewDashboard.loadWorklogs = function(taskId) {
+        TasksService
+            .getWorklogs(taskId)
+            .success(function(data){
+                tasksViewDashboard.worklogs = data;
             })
             .error(function(){
 
@@ -18,7 +34,8 @@ function TasksViewDashboardCtrl($state, TasksService) {
     };
 
     tasksViewDashboard.resolve = function() {
-        tasksViewDashboard.loadTasks();
+        tasksViewDashboard.loadTask($state.params.taskId);
+        tasksViewDashboard.loadWorklogs($state.params.taskId);
     };
 
     tasksViewDashboard.resolve();

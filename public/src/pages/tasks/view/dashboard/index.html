@@ -1,6 +1,45 @@
-<h1>TASK DETAILS</h1>
-<span>{{tasksViewDashboard.item.name}}</span>
+<div class="tools-bar-panel">
+    <a href class="btn back" ng-click="tasksViewDashboard.backToList()">
+        <i class="glyphicon glyphicon-arrow-left"></i>
+    </a>
+    <span class="name">{{tasksViewDashboard.task.name}}</span>
 
-<a href ui-sref="^.worklogs">Worklogs See</a>
+    <div class="pull-right">
+            <span uib-dropdown on-toggle="toggled(open)">
+            <a href class="btn menu" uib-dropdown-toggle id="taskMenu">
+                <i class="glyphicon glyphicon-th"></i>
+            </a>
+              <ul class="dropdown-menu" uib-dropdown-menu aria-labelledby="taskMenu">
+                  <li>
+                      <a href ng-click="">Add new task</a>
+                  </li>
+                  <li>
+                      <a href ui-sref="^.worklogs.add">Add worklog</a>
+                  </li>
+              </ul>
+            </span>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-4">
+        <h4 class="text-center">Herox</h4>
+    </div>
+    <div class="col-md-4">
+        <h4 class="text-center">Worklogs</h4>
+        <table class="table table-striped">
+            <tr>
+                <th>Description</th>
+                <th>Hours</th>
+            </tr>
+            <tr ng-repeat="worklog in tasksViewDashboard.worklogs">
+                <td>{{worklog.desc}}</td>
+                <td>{{worklog.hours}}</td>
+            </tr>
 
-<ui-view></ui-view>
+        </table>
+        <a href ui-sref="^.worklogs">all list</a>
+    </div>
+    <div class="col-md-4">
+        <h4 class="text-center">Firox</h4>
+    </div>
+</div>

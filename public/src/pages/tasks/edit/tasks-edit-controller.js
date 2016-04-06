@@ -6,7 +6,7 @@ function TasksEditCtrl($state, ProjectsService, TasksService) {
     var tasksEdit = this;
 
     tasksEdit.projectId = $state.params.projectId;
-    tasksEdit.taskId = $state.params.id;
+    tasksEdit.taskId = $state.params.taskId;
 
     tasksEdit.isLoaded = {
         assigned: false,

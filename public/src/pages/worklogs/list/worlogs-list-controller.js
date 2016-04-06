@@ -5,8 +5,6 @@
 function WorklogsListCtrl($state, TasksService) {
     var worklogsList = this;
 
-    var taskId = $state.params.taskId;
-
     worklogsList.list = function (id) {
         TasksService
             .getWorklogs(id)
@@ -16,7 +14,7 @@ function WorklogsListCtrl($state, TasksService) {
     };
 
     worklogsList.resolve = function() {
-        worklogsList.list(taskId);
+        worklogsList.list($state.params.taskId);
     };
 
     worklogsList.resolve();

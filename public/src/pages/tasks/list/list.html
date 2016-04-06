@@ -19,7 +19,7 @@
             <tr ng-repeat="task in tasksList.items">
                 <td>{{task.id}}</td>
                 <td>
-                    <a href ui-sref="^.view({id: task.id})">{{task.name}}</a>
+                    <a href ui-sref="^.view({taskId: task.id})">{{task.name}}</a>
                 </td>
                 <td>{{task.created_at | date}}</td>
                 <td>

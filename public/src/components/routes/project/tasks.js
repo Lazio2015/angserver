@@ -40,7 +40,7 @@ function TasksRouterConfig($stateProvider) {
         name: 'project.tasks.edit'
         , sticky: true
         , deepStateRedirect: true
-        , url: '/edit/:id'
+        , url: '/edit/:taskId'
         , controller: 'TasksEditCtrl'
         , controllerAs: 'tasksEdit'
         , templateUrl: '../tpls/pages/tasks/edit/edit.html'
@@ -50,7 +50,7 @@ function TasksRouterConfig($stateProvider) {
         name: 'project.tasks.view'
         , sticky: true
         , deepStateRedirect: true
-        , url: '/view/:id'
+        , url: '/view/:taskId'
         , controller: 'TasksViewCtrl'
         , controllerAs: 'tasksView'
         , templateUrl: '../tpls/pages/tasks/view/index.html'
@@ -64,26 +64,6 @@ function TasksRouterConfig($stateProvider) {
         , controller: 'TasksViewDashboardCtrl'
         , controllerAs: 'tasksViewDashboard'
         , templateUrl: '../tpls/pages/tasks/view/dashboard/index.html'
-    });
-
-    states.push({
-        name: 'project.tasks.view.worklogs'
-        , sticky: true
-        , deepStateRedirect: true
-        , url: '/worklogs'
-        , controller: 'WorklogsCtrl'
-        , controllerAs: 'worklogs'
-        , templateUrl: '../tpls/pages/worklogs/worklogs.html'
-    });
-
-    states.push({
-        name: 'project.tasks.view.worklogs.list'
-        , sticky: true
-        , deepStateRedirect: true
-        , url: '/list'
-        , controller: 'WorklogslistCtrl'
-        , controllerAs: 'worklogsList'
-        , templateUrl: '../tpls/pages/worklogs/list/list.html'
     });
 
     angular.forEach(states, function(state) {

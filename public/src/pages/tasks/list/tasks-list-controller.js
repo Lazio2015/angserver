@@ -27,8 +27,8 @@ function TasksListCtrl($state, ProjectsService, TasksService) {
         }
     };
 
-    tasksList.edit = function(id) {
-        $state.go('^.edit', { id: id});
+    tasksList.edit = function(taskId) {
+        $state.go('^.edit', { taskId: taskId});
     };
 
     tasksList.resolve = function() {

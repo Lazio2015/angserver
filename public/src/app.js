@@ -18,6 +18,7 @@ angular.module('nodemine', [
     .constant('ProjectsRouterConfig', ProjectsRouterConfig)
     .constant('ProjectRouterConfig', ProjectRouterConfig)
     .constant('TasksRouterConfig', TasksRouterConfig)
+    .constant('WorklogsRouterConfig', WorklogsRouterConfig)
 
     .config(AppConfig)
     .run(AppRunTime)
@@ -44,6 +45,7 @@ angular.module('nodemine', [
     //worklogs
     .controller('WorklogsCtrl', WorklogsCtrl)
     .controller('WorklogsListCtrl', WorklogsListCtrl)
+    .controller('WorklogsAddCtrl', WorklogsAddCtrl)
     .factory('WorklogsService', WorklogsService)
 ;
 

@@ -25,7 +25,7 @@ function TasksService($http, SystemConfig) {
     };
 
     TasksService.getWorklogs = function(taskId) {
-        return TasksService._$http.get(SystemConfig.url + TasksService.url + '/' + taskId + 'worklogs');
+        return TasksService._$http.get(SystemConfig.url + TasksService.url + '/' + taskId + '/worklogs');
     };
 
     return TasksService;

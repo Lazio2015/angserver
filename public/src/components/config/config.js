@@ -6,10 +6,7 @@ function AppConfig(
     $locationProvider,
     $httpProvider,
     $stateProvider,
-    $urlRouterProvider,
-
-    BaseRouterConfig,
-    ProjectsRouterConfig)
+    $urlRouterProvider)
 {
 
     $httpProvider.interceptors.push(function ($q) {
@@ -34,6 +31,7 @@ function AppConfig(
     ProjectsRouterConfig($stateProvider);
     ProjectRouterConfig($stateProvider);
     TasksRouterConfig($stateProvider);
+    WorklogsRouterConfig($stateProvider);
 
     // setup x-www-form-urlencoded Content-Type
     //$httpProvider.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded;';
