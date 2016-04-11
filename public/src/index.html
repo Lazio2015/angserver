@@ -24,12 +24,106 @@
                     <li ng-class="{true: 'active'}[app.currentPage == 'projects']" ng-click="app.goUrl('projects')"><a href>Projects</a></li>
                     <li ng-class="{true: 'active'}[app.currentPage == 'contact']" ng-click="app.goUrl('contact')"><a href>Contact</a></li>
                 </ul>
+                <div class="pull-right">
+                    <a href ui-sref="login">Sign In</a>
+                </div>
             </div><!--/.nav-collapse -->
         </div>
     </nav>
     <div class="container">
         <ui-view></ui-view>
     </div>
+
+<!--<div id="wrapper">-->
+
+    <!--<div id="sidebar-toolbar">-->
+        <!--<div class="sidebar sidebar-1 ps-container ps-theme-default" style="" data-ps-id="28283e09-60fd-f8a0-67e1-b7958c780ae7">-->
+            <!--<div class="tap-small-resolutions">Click to show project list</div>-->
+            <!--<div class="app-title">-->
+                <!--Timesheet-->
+            <!--</div>-->
+            <!--<input type="text" placeholder="Filter projects..." class="projects-search">-->
+            <!--<ul class="unstyled projects-list">-->
+                <!--<li class="title header">-->
+                    <!--<div class="title-inner title-inner-top">-->
+                    <!--<span class="import" data-url="/import-projects/asana">-->
+                      <!--Projects-->
+                    <!--</span>-->
+                    <!--</div>-->
+                <!--</li>-->
+                <!--<li style="color:white" ng-repeat="project in app.projects">-->
+                    <!--<div class="pull-right hide loader loader-570526182e307c0b2400000c"><img src="/img/loading.gif"></div>-->
+
+                    <!--<div class="options"><i class="fa fa-gear"></i></div>-->
+
+                    <!--<i class="fa fa-list-ul"></i>-->
+
+
+                    <!--{{project.name}} <br>-->
+                <!--</li>-->
+            <!--</ul>-->
+            <!--<div class="project-wrapper" ui-layout="{flow : 'column'}">-->
+                <!--<div class="preview" ui-layout-container min-size="650px">-->
+                    <!--<ui-view></ui-view>-->
+                <!--</div>-->
+            <!--</div>-->
+            <!--<div class="ps-scrollbar-x-rail" style="left: 0px; bottom: 3px;"><div class="ps-scrollbar-x" tabindex="0" style="left: 0px; width: 0px;"></div></div><div class="ps-scrollbar-y-rail" style="top: 0px; right: 3px;"><div class="ps-scrollbar-y" tabindex="0" style="top: 0px; height: 0px;"></div></div></div>-->
+        <!--<div style="background-color: rgba(141, 191, 206, 0.5);color: #fff;border-radius: 3px;padding: 5px 0 5px 1px;font-size: 20px;margin-left: 10px;margin-top: 15px;margin-right: 10px;">-->
+            <!--<i class="fa fa-rotate-90 fa-fw fa-signal"></i>-->
+        <!--</div>-->
+        <!--<div class="sidebar-buttons" style="margin-top:11px">-->
+
+            <!--<div class="button-container add-projects" role="menu">-->
+                <!--<div class="button"><i class="fa fa-fw fa-plus"></i></div>-->
+                <!--<div class="button-label">-->
+                    <!--Connect<br>Projects-->
+                <!--</div>-->
+            <!--</div>-->
+
+            <!--<div class="button-container refresh button-refresh">-->
+                <!--<div class="button"><i class="fa fa-fw fa-refresh"></i></div>-->
+                <!--<div class="button-label">-->
+                    <!--Sync Projects<br>List-->
+                <!--</div>-->
+            <!--</div>-->
+
+
+
+            <!--<div class="button-container" data-elevio-module="articles">-->
+                <!--<div class="button"><i class="fa fa-fw fa-book"></i></div>-->
+                <!--<div class="button-label">-->
+                    <!--Help<br>Guide-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+        <!--<div class="modal hide" id="resync-modal">-->
+            <!--<div class="modal-body" style="text-align:center">-->
+                <!--<h3>-->
+                    <!--Sync Projects List-->
+                <!--</h3>-->
+                <!--<p>-->
+                    <!--By doing this action, your <b>connected</b> projects will be updated with the last Asana name &amp; colors. This could take a couple of minutes.-->
+                <!--</p>-->
+                <!--<button class="resync-projects btn btn-success">Sync</button>-->
+            <!--</div>-->
+            <!--<div class="modal-footer">-->
+                <!--<a href="#" data-dismiss="modal" class="btn">Close</a>-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</div>-->
+
+    <!--<div id="page-wrapper">-->
+
+        <!--<div class="container-fluid">-->
+
+
+        <!--</div>-->
+        <!--&lt;!&ndash; /.container-fluid &ndash;&gt;-->
+
+    <!--</div>-->
+    <!--&lt;!&ndash; /#page-wrapper &ndash;&gt;-->
+<!--</div>-->
+<!-- /#wrapper -->
 
     <script src="/bower_components/jquery/dist/jquery.min.js"></script>
     <script src="/bower_components/angular/angular.min.js"></script>

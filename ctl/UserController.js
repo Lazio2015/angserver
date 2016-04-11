@@ -12,6 +12,17 @@ module.exports = function(app, db){
 
                 res.json(users);
             });
+        },
+
+        login: function(req, res, next){
+            userDAO.login(req.body, function(err, user) {
+                if (err) {
+                    console.log(err);
+                    return next(err);
+                }
+
+                res.statusCode(400);
+            });
         }
     };
 };

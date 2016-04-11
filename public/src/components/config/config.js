@@ -33,6 +33,8 @@ function AppConfig(
     TasksRouterConfig($stateProvider);
     WorklogsRouterConfig($stateProvider);
 
+    AuthRouterConfig($stateProvider);
+
     // setup x-www-form-urlencoded Content-Type
     //$httpProvider.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded;';
 }

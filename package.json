@@ -19,6 +19,8 @@
     "nconf": "^0.8.4",
     "node-mysql": "~0.4.2",
     "request": "^2.65.0",
-    "serve-favicon": "~2.3.0"
+    "serve-favicon": "~2.3.0",
+    "express-session": "^1.10.1",
+    "connect-flash": "^0.1.1"
   }
 }

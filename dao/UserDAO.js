@@ -22,6 +22,20 @@ module.exports = function(conn) {
 
                 cb(null, users);
             });
+        },
+
+        login: function(user, cb){
+            const QUERY_TPL = "SELECT * FROM `users` WHERE email=%s AND password=%s";
+
+            var query = util.format(QUERY_TPL, user.email, md5(user.password));
+
+            conn.query(query, function(err, user) {
+                if(err)
+                    return cb(err);
+
+                cb(null, user);
+
+            })
         }
     };
 

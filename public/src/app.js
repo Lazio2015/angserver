@@ -14,6 +14,8 @@ angular.module('nodemine', [
         flag: true
     })
 
+    .constant('AuthRouterConfig', AuthRouterConfig)
+
     .constant('BaseRouterConfig', BaseRouterConfig)
     .constant('ProjectsRouterConfig', ProjectsRouterConfig)
     .constant('ProjectRouterConfig', ProjectRouterConfig)
@@ -26,6 +28,9 @@ angular.module('nodemine', [
     //base
     .controller('AppCtrl', AppCtrl)
     .controller('HomeCtrl', HomeCtrl)
+
+    //aith
+    .controller('LoginCtrl', LoginCtrl)
 
     //projects
     .controller('ProjectsCtrl', ProjectsCtrl)

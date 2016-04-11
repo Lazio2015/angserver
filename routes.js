@@ -2,13 +2,15 @@
  * @author Lenur
  */
 
+var auth = require('./middleware/auth');
+
 module.exports = function(app, conn){
     var projectController = require('./ctl/ProjectController')(app, conn);
     var taskController = require('./ctl/TaskController')(app, conn);
     var userController = require('./ctl/UserController')(app, conn);
     var worklogController = require('./ctl/WorklogController')(app, conn);
 
-    app.get('/projects/:id', projectController.getById);
+    app.get('/projects/:id', auth, projectController.getById);
     app.get('/projects', projectController.getAll);
     app.get('/projects/:id/users', userController.getAllByProjectId);
     app.get('/projects/:id/tasks', taskController.getAllByProjectId);
