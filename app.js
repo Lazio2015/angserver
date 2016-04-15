@@ -8,7 +8,6 @@
     , config        = require('./config')
     , mysql         = require('node-mysql')
     , router        = express.Router()
-    , oauthserver   = require('oauth2-server')
     ;
 
 var db = new mysql.DB(config.get('db'));
@@ -18,21 +17,8 @@ app.use('/bower_components', express.static('public/bower_components'));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
- app.oauth = oauthserver({
-     model: {
-
-     }, // See below for specification
-     grants: ['password'],
-     debug: true
- });
-
- app.get('/', app.oauth.authorise(), function (req, res) {
-     res.send('Secret area');
- });
-
- app.use(app.oauth.errorHandler());
 app.use('/api', router);
-//app.use('*', express.static('public/dist/index.html'));
+app.use('*', express.static('public/dist/index.html'));
 
 db.connect(function(conn, cb){
 

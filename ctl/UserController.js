@@ -1,6 +1,6 @@
 module.exports = function(app, db){
 
-    var userDAO = require('../dao/UserDAO')(db);
+    var userDAO     = require('../dao/UserDAO')(db);
 
     return {
         getAllByProjectId: function(req, res, next){
@@ -15,13 +15,23 @@ module.exports = function(app, db){
         },
 
         login: function(req, res, next){
-            userDAO.login(req.body, function(err, user) {
+            userDAO.findUserByEmail(req.body.email, function(err, user){
                 if (err) {
-                    console.log(err);
+                    console.error(err);
                     return next(err);
                 }
 
-                res.statusCode(400);
+                if (null == user){
+                    return next(401, 'user not found');
+                }
+
+                if (!userDAO.checkPassword(req.body.password, user.password)){
+                    return next(401, 'bbb');
+                }
+
+                res.status(200).json(user);
+                //authorize
+
             });
         }
     };

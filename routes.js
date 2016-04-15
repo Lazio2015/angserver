@@ -22,4 +22,6 @@ module.exports = function(app, conn){
     app.put('/tasks', taskController.edit);
     app.get('/tasks/:id/worklogs', worklogController.getAllByTaskId);
 
+    app.post('/login', userController.login);
+
 };

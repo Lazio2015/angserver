@@ -5,6 +5,7 @@
 module.exports = function(conn) {
 
    var util = require('util');
+   var crypto = require('crypto');
 
     return {
         findAllByProjectId: function(projectId, cb){
@@ -24,19 +25,27 @@ module.exports = function(conn) {
             });
         },
 
-        login: function(user, cb){
-            const QUERY_TPL = "SELECT * FROM `users` WHERE email=%s AND password=%s";
+        findUserByEmail: function(email, cb){
+            const QUERY_TPL = "SELECT * FROM `users` WHERE `email`='%s' LIMIT 1";
 
-            var query = util.format(QUERY_TPL, user.email, md5(user.password));
+            var query = util.format(QUERY_TPL, email);
 
-            conn.query(query, function(err, user) {
+            conn.query(query, function(err, users) {
                 if(err)
                     return cb(err);
 
-                cb(null, user);
+                cb(null, users.length ? users[0] : null);
 
             })
-        }
+        },
+
+        encryptPassword: function(password){
+            return crypto.createHash('md5').update(password).digest("hex");
+        },
+
+        checkPassword: function(plainPassword, hash){
+            return this.encryptPassword(plainPassword) == hash;
+        },
     };
 
 };

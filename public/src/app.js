@@ -31,6 +31,7 @@ angular.module('nodemine', [
 
     //aith
     .controller('LoginCtrl', LoginCtrl)
+    .factory('AuthService', AuthService)
 
     //projects
     .controller('ProjectsCtrl', ProjectsCtrl)

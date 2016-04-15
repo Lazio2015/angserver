@@ -1,10 +1,17 @@
 /**
  * Created by lenur on 4/7/16.
  */
-function LoginCtrl() {
+function LoginCtrl(AuthService) {
     var login = this;
 
+    login.user = {};
+
     login.submit = function() {
-        alert('submit');
+        console.log(login.user);
+
+        AuthService.login(login.user)
+            .then(function(){
+
+            });
     }
 }

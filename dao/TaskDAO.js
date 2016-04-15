@@ -80,7 +80,7 @@ module.exports = function(conn) {
 
             var query = util.format(QUERY_TPL, task.name, task.projectId, task.assignedId, parseInt(task.estimatedTime), task.id);
 
-            conn.query(query, function(err, data) {
+            conn.query(query, function(err, task) {
                 if (err) {
                     console.error(err);
                     return cb(err);
